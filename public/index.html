@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Benim Online Oyunum</title>
+    <style>
+        body { background: #111; color: #fff; font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        #durum { font-size: 20px; color: #00ffcc; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Render.com Üzerinde Online Oyun</h1>
+    <div id="durum">Sunucuya bağlanılıyor...</div>
+
+    <!-- Otomatik gelen Socket.io kütüphanesi -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        const durumDiv = document.getElementById('durum');
+
+        socket.on('connect', () => {
+            durumDiv.innerText = "Bağlantı Başarılı! Socket ID: " + socket.id;
+        });
+    </script>
+</body>
+</html>
